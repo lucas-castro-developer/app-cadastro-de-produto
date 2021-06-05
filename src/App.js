@@ -1,6 +1,6 @@
 import React from "react";
 
-import Home from "./views/home";
+import Routes from "./config/routes";
 import Navbar from "./components/navbar";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <>
       <div className="container">
         <Navbar />
-        <Home />
+        <Routes />
       </div>
     </>
   );
