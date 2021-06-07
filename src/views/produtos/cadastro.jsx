@@ -9,6 +9,7 @@ const estadoInicial = {
   preco: 0,
   fornecedor: "",
   sucesso: false,
+  errors: [],
 };
 
 class CadastroProduto extends React.Component {
@@ -33,9 +34,14 @@ class CadastroProduto extends React.Component {
       preco: this.state.preco,
       fornecedor: this.state.fornecedor,
     };
-    this.service.salvar(produto);
-    this.limpaCampos();
-    this.setState({ sucesso: true });
+    try {
+      this.service.salvar(produto);
+      this.limpaCampos();
+      this.setState({ sucesso: true });
+    } catch (erro) {
+      const errors = erro.errors;
+      this.setState({ errors: errors });
+    }
   };
 
   limpaCampos = () => {
@@ -47,7 +53,7 @@ class CadastroProduto extends React.Component {
       <div className="card">
         <div className="card-header">Cadastro de produto</div>
         <div className="card-body">
-          {this.state.sucesso ? (
+          {this.state.sucesso && (
             <div className="alert alert-dismissible alert-success">
               <button
                 type="button"
@@ -57,9 +63,20 @@ class CadastroProduto extends React.Component {
               <strong>Muito bem!</strong> Cadastro de produto realizado com
               sucesso!
             </div>
-          ) : (
-            <></>
           )}
+          {this.state.errors.length >
+            0(
+              this.state.errors.map((msg) => {
+                <div className="alert alert-dismissible alert-danger">
+                  <button
+                    type="button"
+                    className="btn-close"
+                    data-bs-dismiss="alert"
+                  ></button>
+                  <strong>{msg}</strong>
+                </div>;
+              })
+            )}
           <div className="row">
             <div className="col-md-6">
               <div className="form-group">
