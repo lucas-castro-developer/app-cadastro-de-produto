@@ -8,6 +8,7 @@ const estadoInicial = {
   descricao: "",
   preco: 0,
   fornecedor: "",
+  sucesso: false,
 };
 
 class CadastroProduto extends React.Component {
@@ -34,6 +35,7 @@ class CadastroProduto extends React.Component {
     };
     this.service.salvar(produto);
     this.limpaCampos();
+    this.setState({ sucesso: true });
   };
 
   limpaCampos = () => {
@@ -45,6 +47,19 @@ class CadastroProduto extends React.Component {
       <div className="card">
         <div className="card-header">Cadastro de produto</div>
         <div className="card-body">
+          {this.state.sucesso ? (
+            <div class="alert alert-dismissible alert-success">
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+              ></button>
+              <strong>Muito bem!</strong> Cadastro de produto realizado com
+              sucesso!
+            </div>
+          ) : (
+            <></>
+          )}
           <div className="row">
             <div className="col-md-6">
               <div className="form-group">
