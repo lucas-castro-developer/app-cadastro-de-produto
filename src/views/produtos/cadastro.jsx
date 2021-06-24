@@ -53,7 +53,7 @@ class CadastroProduto extends React.Component {
       <div className="card">
         <div className="card-header">Cadastro de produto</div>
         <div className="card-body">
-          {this.state.sucesso && (
+          {this.state.sucesso ? (
             <div className="alert alert-dismissible alert-success">
               <button
                 type="button"
@@ -63,10 +63,9 @@ class CadastroProduto extends React.Component {
               <strong>Muito bem!</strong> Cadastro de produto realizado com
               sucesso!
             </div>
-          )}
-          {this.state.errors.length >
-            0(
-              this.state.errors.map((msg) => {
+          ) : null}
+          {this.state.errors.length > 0
+            ? this.state.errors.map((msg) => {
                 <div className="alert alert-dismissible alert-danger">
                   <button
                     type="button"
@@ -76,7 +75,7 @@ class CadastroProduto extends React.Component {
                   <strong>{msg}</strong>
                 </div>;
               })
-            )}
+            : null}
           <div className="row">
             <div className="col-md-6">
               <div className="form-group">

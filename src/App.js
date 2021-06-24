@@ -3,13 +3,17 @@ import React from "react";
 import Routes from "./config/routes";
 import Navbar from "./components/navbar";
 
+import { HashRouter } from "react-router-dom";
+
 function App() {
   return (
     <>
-      <div className="container">
-        <Navbar />
-        <Routes />
-      </div>
+      <HashRouter>
+        <div className="container">
+          <Navbar />
+          <Routes />
+        </div>
+      </HashRouter>
     </>
   );
 }
