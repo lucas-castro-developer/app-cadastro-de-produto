@@ -1,9 +1,22 @@
 import React from "react";
 
+import ProdutoService from "../../app/produtoService";
+
 class ConsultaProdutos extends React.Component {
   state = {
     produtos: [],
   };
+
+  constructor() {
+    super();
+    this.service = new ProdutoService();
+  }
+
+  componentDidMount() {
+    const produtos = this.service.obterProdutos();
+    this.setState({ produtos });
+  }
+
   render() {
     return (
       <div className="card">
@@ -20,13 +33,13 @@ class ConsultaProdutos extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.produtos.map((produto) => {
+            {this.state.produtos.map((produto, index) => {
               return (
-                <tr>
-                  <td>Nome</td>
-                  <td>SKU</td>
-                  <td>Preço</td>
-                  <td>Fornecedor</td>
+                <tr key={index}>
+                  <td>{produto.nome}</td>
+                  <td>{produto.sku}</td>
+                  <td>{produto.preco}</td>
+                  <td>{produto.fornecedor}</td>
                   <td>Buttons</td>
                 </tr>
               );
