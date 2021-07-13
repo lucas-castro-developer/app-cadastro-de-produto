@@ -35,6 +35,7 @@ class ConsultaProdutos extends React.Component {
               <th>SKU</th>
               <th>Preço</th>
               <th>Fornecedor</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
