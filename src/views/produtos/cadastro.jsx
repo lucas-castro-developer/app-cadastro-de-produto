@@ -12,6 +12,7 @@ const estadoInicial = {
   fornecedor: "",
   sucesso: false,
   errors: [],
+  atualizando = false
 };
 
 class CadastroProduto extends React.Component {
@@ -59,7 +60,7 @@ class CadastroProduto extends React.Component {
         .filter((produto) => produto.sku === sku);
       if (resultado.length === 1) {
         const produtoEncontrado = resultado[0];
-        this.setState({ ...produtoEncontrado });
+        this.setState({ ...produtoEncontrado, atualizando: true });
       }
     }
   }
@@ -67,7 +68,9 @@ class CadastroProduto extends React.Component {
   render() {
     return (
       <div className="card">
-        <div className="card-header">Cadastro de produto</div>
+        <div className="card-header">
+          { this.state.atualizando ? 'Atualização ' : 'Cadastro ' } de produto
+        </div>
         <div className="card-body">
           {this.state.sucesso ? (
             <div className="alert alert-dismissible alert-success">
@@ -114,6 +117,7 @@ class CadastroProduto extends React.Component {
                   onChange={this.onChange}
                   value={this.state.sku}
                   className="form-control"
+                  disabled={this.state.atualizando}
                 />
               </div>
             </div>
@@ -164,7 +168,7 @@ class CadastroProduto extends React.Component {
           <div className="row">
             <div className="col-md-1">
               <button onClick={this.onSubmit} className="btn btn-success">
-                Salvar
+                {this.state.atualizando ? 'Atualizar' : 'Salvar'}
               </button>
             </div>
             <div className="col-md-1">
