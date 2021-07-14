@@ -12,7 +12,7 @@ const estadoInicial = {
   fornecedor: "",
   sucesso: false,
   errors: [],
-  atualizando = false
+  atualizando: false
 };
 
 class CadastroProduto extends React.Component {

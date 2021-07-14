@@ -23,6 +23,11 @@ class ConsultaProdutos extends React.Component {
     this.props.history.push(`/cadastro-produtos/${sku}`);
   };
 
+  deletar = (sku) => {
+    const produtos = this.service.deletar(sku);
+    this.setState({ produtos });
+  };
+
   render() {
     return (
       <div className="card">
@@ -53,7 +58,12 @@ class ConsultaProdutos extends React.Component {
                     >
                       Editar
                     </button>
-                    <button className="btn btn-danger">Remover</button>
+                    <button
+                      onClick={() => this.deletar(produto.sku)}
+                      className="btn btn-danger"
+                    >
+                      Remover
+                    </button>
                   </td>
                 </tr>
               );
