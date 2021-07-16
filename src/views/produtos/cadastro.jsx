@@ -100,7 +100,7 @@ class CadastroProduto extends React.Component {
                 </div>;
               })
             : null}
-          <div className="row">
+          <div className="row py-2">
             <div className="col-md-6">
               <div className="form-group">
                 <label>Nome: *</label>
@@ -128,9 +128,9 @@ class CadastroProduto extends React.Component {
             </div>
           </div>
 
-          <div className="row">
+          <div className="row py-2">
             <div className="col-md-12">
-              <div className="form-control">
+              <div className="form-group">
                 <label>Descrição:</label>
                 <textarea
                   name="descricao"
@@ -142,9 +142,9 @@ class CadastroProduto extends React.Component {
             </div>
           </div>
 
-          <div className="row">
+          <div className="row py-2">
             <div className="col-md-6">
-              <div className="form-control">
+              <div className="form-group">
                 <label>Preço:</label>
                 <input
                   type="number"
@@ -157,7 +157,7 @@ class CadastroProduto extends React.Component {
             </div>
 
             <div className="col-md-6">
-              <div className="form-control">
+              <div className="form-group">
                 <label>Fornecedor:</label>
                 <input
                   type="text"
@@ -170,7 +170,7 @@ class CadastroProduto extends React.Component {
             </div>
           </div>
 
-          <div className="row">
+          <div className="row py-2">
             <div className="col-md-1">
               <button type="submit" className="btn btn-success">
                 {this.state.atualizando ? "Atualizar" : "Salvar"}

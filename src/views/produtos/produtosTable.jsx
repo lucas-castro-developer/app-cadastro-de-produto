@@ -28,7 +28,7 @@ export default (props) => (
               </button>
               <button
                 onClick={() => props.deletarAction(produto.sku)}
-                className="btn btn-danger"
+                className="btn btn-danger mx-3"
               >
                 Remover
               </button>
