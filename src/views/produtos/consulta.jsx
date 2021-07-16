@@ -1,5 +1,6 @@
 import React from "react";
 
+import Card from "../../components/card";
 import ProdutoService from "../../app/produtoService";
 
 import { withRouter } from "react-router-dom";
@@ -30,9 +31,7 @@ class ConsultaProdutos extends React.Component {
 
   render() {
     return (
-      <div className="card">
-        <div className="card-header">Consulta de produtos</div>
-        <div className="card-body"></div>
+      <Card header="Consulta de produtos">
         <table className="table table-hover">
           <thead>
             <tr>
@@ -70,7 +69,7 @@ class ConsultaProdutos extends React.Component {
             })}
           </tbody>
         </table>
-      </div>
+      </Card>
     );
   }
 }
