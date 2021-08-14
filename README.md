@@ -2,9 +2,6 @@
 
 <br />
 <p align="center">
-  <a href="#">
-    <img src="images/#">
-  </a>
 
   <h3 align="center">Cadastro de Produto</h3>
 
@@ -53,11 +50,17 @@ Abaixo, segue imagens do layout construído em dispositivos  `mobile` e `desktop
 
 **Mobile**
 
-<img src="images/IMAGEM_APLICACAO_MOBILE">
+<img src="img/mob-1.png">
+
+<img src="img/mob-2.png">
 
 **Desktop**
 
-<img src="images/IMAGEM_APLICACAO_DESKTOP">
+<img src="img/desk-1.png">
+
+<img src="img/desk-2.png">
+
+<img src="img/desk-3.png">
 
 ### Construído com
 
